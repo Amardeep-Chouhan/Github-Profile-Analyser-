@@ -3,7 +3,8 @@ import { analyze, listProfiles, getProfile, removeProfile } from "../controllers
 
 const router = Router();
 
-// Analyze (or re-analyze) a GitHub profile
+
+// Analyze (or re-analyze) a GitHub profiles
 router.post("/analyze/:username", analyze);
 
 // List all stored profiles
