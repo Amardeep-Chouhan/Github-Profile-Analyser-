@@ -1,0 +1,252 @@
+{
+  "info": {
+    "name": "GitHub Profile Analyzer API",
+    "description": "Collection for testing GitHub Profile Analyzer API endpoints",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        },
+        "description": "Check if API is running"
+      },
+      "response": []
+    },
+    {
+      "name": "API Documentation",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": ["{{baseUrl}}"],
+          "path": [""]
+        },
+        "description": "Get API documentation and available endpoints"
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze Profile - Torvalds",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles/analyze/torvalds",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles", "analyze", "torvalds"]
+        },
+        "description": "Analyze a GitHub user (Linus Torvalds) and store insights"
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze Profile - Gvanrossum",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles/analyze/gvanrossum",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles", "analyze", "gvanrossum"]
+        },
+        "description": "Analyze a GitHub user (Guido van Rossum - Python creator)"
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze Profile - Custom Username",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles/analyze/octocat",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles", "analyze", "octocat"]
+        },
+        "description": "Analyze any GitHub username (replace 'octocat' with desired username)"
+      },
+      "response": []
+    },
+    {
+      "name": "List All Profiles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles"]
+        },
+        "description": "Get all analyzed profiles (default pagination)"
+      },
+      "response": []
+    },
+    {
+      "name": "List Profiles - Paginated",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles?page=1&limit=10",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles"],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "Get profiles with custom page and limit"
+      },
+      "response": []
+    },
+    {
+      "name": "List Profiles - Sorted by Influence",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles?sort=influence_score&order=desc&limit=5",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles"],
+          "query": [
+            {
+              "key": "sort",
+              "value": "influence_score"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        },
+        "description": "Get top 5 profiles by influence score"
+      },
+      "response": []
+    },
+    {
+      "name": "List Profiles - Sorted by Followers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles?sort=followers&order=desc&limit=10",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles"],
+          "query": [
+            {
+              "key": "sort",
+              "value": "followers"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "Get top 10 profiles by followers"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Single Profile - Torvalds",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles/torvalds",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles", "torvalds"]
+        },
+        "description": "Get full details for a specific profile including top repos and analysis history"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Single Profile - Custom",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles/octocat",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles", "octocat"]
+        },
+        "description": "Get full details for any analyzed profile (replace 'octocat' with username)"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Profile - Torvalds",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles/torvalds",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles", "torvalds"]
+        },
+        "description": "Delete a profile and all related data from the database"
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Profile - Custom",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/profiles/octocat",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "profiles", "octocat"]
+        },
+        "description": "Delete any analyzed profile (replace 'octocat' with username)"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "description": "Complete API collection for GitHub Profile Analyzer. Update the {{baseUrl}} variable to your live deployment URL when testing on production."
+}
