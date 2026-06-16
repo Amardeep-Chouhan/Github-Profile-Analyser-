@@ -1,0 +1,25 @@
+{
+  "name": "github-profile-analyzer",
+  "version": "1.0.0",
+  "description": "GitHub Profile Analyzer - fetches and stores insights from GitHub public profiles",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "db:init": "mysql -u$DB_USER -p$DB_PASSWORD $DB_NAME < sql/schema.sql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.18.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.2.0",
+    "morgan": "^1.11.0",
+    "mysql2": "^3.22.5"
+  }
+}
