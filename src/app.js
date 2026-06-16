@@ -55,4 +55,8 @@ app.get("/", (req, res) => {
   });
 });
 
+// --- 404 & error handlers (must be last) ---
+app.use(notFound);
+app.use(errorHandler);
 
+export default app;
