@@ -36,3 +36,23 @@ app.get("/health", (req, res) =>
   res.json({ status: "ok", timestamp: new Date().toISOString() })
 );
 
+// --- API routes ---
+app.use("/api/profiles", profileRoutes);
+
+// --- API docs (inline) ---
+app.get("/", (req, res) => {
+  res.json({
+    name: "GitHub Profile Analyzer API",
+    version: "1.0.0",
+    endpoints: {
+      "POST /api/profiles/analyze/:username": "Analyze a GitHub user and store insights",
+      "GET  /api/profiles":                   "List all analyzed profiles (supports ?page, ?limit, ?sort, ?order)",
+      "GET  /api/profiles/:username":          "Get full detail for a stored profile",
+      "DELETE /api/profiles/:username":        "Remove a stored profile",
+      "GET  /health":                          "Health check",
+    },
+    sortable_fields: ["analyzed_at", "followers", "influence_score", "public_repos", "total_stars_received", "username"],
+  });
+});
+
+
