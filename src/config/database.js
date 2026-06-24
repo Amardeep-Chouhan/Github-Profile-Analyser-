@@ -1,5 +1,6 @@
+import "dotenv/config"
 import mysql from "mysql2/promise";
-
+console.log("ENV CHECK:", process.env.DB_HOST, process.env.DB_USER, process.env.DB_PASSWORD ? "[set]" : "[MISSING]");
 const pool = mysql.createPool({
   host: process.env.DB_HOST || "localhost",
   port: parseInt(process.env.DB_PORT) || 3306,
